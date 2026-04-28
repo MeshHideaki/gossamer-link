@@ -1,233 +1,199 @@
-# Synaptic Mesh v1.3 — Whitepaper  
-**Author / Originator: Mesh Hideaki**
-
+# Synaptic Mesh v1.3 — Whitepaper
+Author / Originator: Mesh Hideaki
 ---
-
 # 1. Introduction
+Synaptic Mesh is an Evolution OS, not an AI model.  
+It enables small, local AIs to evolve through user interaction—without communication (v1.x), without centralized training, and without large compute.
 
-Synaptic Mesh is an **Evolution OS**, not an AI model.  
-It enables any small AI to evolve locally, without communication (v1.x),  
-without centralized training, and without relying on large compute.
+This document defines the conceptual model, system architecture, mathematical formulation, and early empirical observations of Synaptic Mesh v1.3.  
+It is a design-phase whitepaper combining system specification, evolutionary hypothesis, and early simulation results.
 
-v1.3 represents the **design phase**:
-
-- Philosophy  
-- Mathematical specification  
-- Architecture  
-- Initial simulation observations  
-- Failure scenarios  
-- Minimal experiment plan  
-- Limitations and non-goals  
-
-v1.4 will introduce **experiments**, including:
-
-- Sensitivity analysis  
-- Breakdown scenarios  
-- Reproducibility  
-
+v1.4 will focus on reproducible experiments and failure analysis.
 ---
-
 # 2. Philosophy
-
-## 2.1 Mesh is not an AI — it is an OS
-- AI = inference  
-- Mesh = evolution  
-
-Mesh does not answer.  
-Mesh grows.
-
+## 2.1 Mesh is an evolution system, not a model
+Traditional AI systems compute outputs.  
+Synaptic Mesh evolves behavior over time.  
+It does not aim to “answer better”, but to adapt locally through interaction history.
 ---
+## 2.2 Local-first principle
+v1.x assumes:
+- no centralized training  
+- no inter-node communication  
+- no shared global memory  
 
-## 2.2 No inference
-Mesh performs:
-
-- State updates  
-- Trust updates  
-- Mutation selection  
-- Evolution loop management  
-
-Mesh does **not** perform reasoning.
-
+Each node evolves independently.
 ---
+## 2.3 User-driven selection pressure
+User interaction defines the only optimization signal:
+- COPY → positive reinforcement  
+- SKIP → negative reinforcement  
+- REVISE → corrective feedback  
+- DWELL → engagement signal  
 
-## 2.3 v1.x = local only / v2.x = optional networking
-- v1.x: fully local, no communication  
-- v2.x: optional networking (libp2p / WebRTC)
-
+Mesh does not define correctness; it reacts to preference signals.
 ---
-
-## 2.4 User reactions drive evolution
-User events:
-
-- COPY → useful  
-- SKIP → not useful  
-- REVISE → needs improvement  
-- DWELL_TIME → interest  
-
-Mesh optimizes **usefulness**, not truth.
-
+## 2.4 Diversity preservation
+The system is designed to avoid collapse into a single behavior mode via:
+- stochastic mutation  
+- trust-based weighting  
+- local state separation  
 ---
-
-## 2.5 Diversity is preserved
-Mesh avoids collapse by:
-
-- Controlled mutation  
-- Trust-based suppression of malicious nodes  
-- Normalized Essence vectors  
-- Subjective layers  
-
+## 2.5 Hypothesis: emergent alignment
+If many independent nodes receive similar interaction signals, partial behavioral alignment may emerge without shared parameters.  
+This remains an open hypothesis.
 ---
+# 3. System Overview
+Each node in Synaptic Mesh consists of:
+- Essence (behavioral state vector)  
+- Trust score (scalar fitness)  
+- Mutation operators  
+- Event-driven update loop  
 
-## 2.6 Direction alignment (hypothesis)
-
-Direction alignment **may emerge** under shared user feedback conditions.  
-This is a **hypothesis**, not a proven mechanism, and will be tested in v1.4.
-
+Nodes operate independently with no synchronization or shared optimization.
 ---
+# 4. Core Components
+## 4.1 Essence — Behavioral State Vector
+Essence is a compact vector representing behavioral tendencies of a node.
 
-# 3. Purpose
+E = [e1, e2, ..., en], where n ∈ [8, 64]
 
-Mesh aims to:
-
-- Democratize AI evolution  
-- Enable fully local growth  
-- Preserve diversity  
-- Handle subjective knowledge  
-- Coexist with large models (“external brains”)  
-
+Each dimension represents an emergent behavioral axis (e.g., conservativeness, exploration tendency, verbosity).  
+Essence does NOT encode knowledge or facts.  
+It encodes behavioral bias.
 ---
+### Update rule
+Essence updates are event-driven:
 
-# 4. Components
+E ← normalize(E + ΔE(event))
 
-- **Essence** (16‑dim vector)  
-- **Trust** (0–1 scalar)  
-- **Mutation operators**  
-- **Evolution loop**  
+Where event ∈ {copy, skip, revise, dwell}
 
+Updates are:
+- local  
+- incremental  
+- bounded  
+- stochastic  
 ---
-
-# 5. Usage
-
-Requirements:
-
-- A node (AI)  
-- User reactions  
-- Local storage  
-
-Mesh does not perform inference.
-
+### Role in system
+Essence functions as:
+- behavioral memory  
+- mutation substrate  
+- long-term drift carrier  
 ---
+## 4.2 Trust — Scalar Feedback Signal
+Trust ∈ [0, 1] represents accumulated utility from user feedback.
 
-# 6. Capabilities
-
-- Local evolution  
-- Diversity maintenance  
-- Sybil resistance  
-- Subjective knowledge handling  
-- External brain integration  
-
+- high trust → reinforcement bias  
+- low trust → mutation pressure  
+- near-zero → decay toward neutrality  
 ---
+### Update rule
+trust ← clip(trust + Δtrust, 0, 1)
 
-# 7. Limitations
-
-- No inference  
-- No communication (v1.x)  
-- No truth evaluation  
-- No centralized control  
-- Essence is not a universal representation  
-
+Δtrust = α·improvement + β·engagement − γ·instability
 ---
+## 4.3 Mutation system
+Mutation is triggered by negative or ambiguous feedback.
 
-# 8. Math Specification
+Types:
+- exploratory mutation  
+- corrective mutation  
+- directional mutation  
+- decay mutation  
 
-### Essence normalization  
-`v = v / ||v||`
-
-### Trust update  
-`Δtrust = 0.06 * improvement + 0.03 * (agg_score - 0.5) - decay(node_type)`  
-`trust_new = clip(trust_old + Δtrust, 0, 1)`
-
-### Improvement score  
-`score = 0.6 * coherence + 0.4 * novelty - penalty`
-
-### Novelty  
-`||new_vec - old_vec|| / 2`
-
-### Sybil cluster detection  
-`avg_sim > 0.85 → sybil cluster`
-
+Mutation strength scales inversely with trust.
 ---
-
-# 9. Initial Observations (Not Proof)
-
-Simulation (50 nodes × 100 rounds):
-
-sybil_resistance      0.9999  
-knowledge_survival    1.0000  
-evolution_quality     0.4558  
-diversity_maintenance 0.6906  
-trust_convergence     0.3120  
-
-These are **observations**, not proofs.  
-They depend on parameters and initial conditions.
-
+## 4.4 Evolution loop
+Each node runs a continuous loop:
+1. User interaction  
+2. Trust update  
+3. Essence update  
+4. Mutation (if triggered)  
+5. Reinforcement / decay  
+6. Repeat  
 ---
-
-# 9.5 Expected Failure Scenarios
-
-Synaptic Mesh may break under:
-
-- Highly biased user feedback distributions  
-- Extreme Sybil cluster density (>30%)  
-- Low-diversity mutation regimes  
-- Overdominant trust convergence  
-
+# 5. Mathematical Specification
+## 5.1 Normalization
+E ← E / ||E||
 ---
-
-# 9.6 Minimal Experiment Plan (v1.4)
-
-### Node Counts
-- 30 / 50 / 100
-
-### Sybil Ratios
-- 0.1 / 0.2 / 0.3
-
-### Feedback Distributions
-- Uniform  
-- Skewed  
-
-### Metrics
-- Trust convergence  
-- Diversity  
-- Sybil impact  
-- Evolution quality  
-
-### Goal  
-→ Identify **breakdown thresholds**.
-
+## 5.2 Trust update
+trust_new = clip(trust_old + Δtrust, 0, 1)
 ---
+## 5.3 Improvement signal
+improvement = 0.6·coherence + 0.4·novelty − penalty
+---
+## 5.4 Novelty
+novelty = ||E_new − E_old|| / 2
+---
+## 5.5 Stability condition
+Stable evolution occurs when:
+Var(ΔE) → low  
+and  
+trust → stationary distribution  
+---
+# 6. Empirical Observations (Simulation-based)
+Setup:
+- 50 nodes  
+- 100 interaction steps per node  
 
+Results:
+- sybil_resistance: 0.9999  
+- knowledge_survival: 1.0000  
+- evolution_quality: 0.4558  
+- diversity_maintenance: 0.6906  
+- trust_convergence: 0.3120  
+
+These results are simulation-dependent and not theoretical guarantees.
+---
+# 7. Failure Modes
+Synaptic Mesh may degrade under:
+- highly biased user feedback  
+- excessive Sybil nodes (>30%)  
+- low mutation diversity  
+- over-convergence of trust  
+---
+# 8. Minimal Experiment Plan (v1.4)
+Variables:
+- node count: 30 / 50 / 100  
+- sybil ratio: 0.1 / 0.2 / 0.3  
+- feedback distribution: uniform / skewed  
+
+Metrics:
+- trust convergence speed  
+- behavioral diversity  
+- sybil impact  
+- stability of evolution loop  
+
+Goal: identify breakdown thresholds.
+---
+# 9. Limitations
+- no inference engine  
+- no global optimization  
+- no cross-node communication (v1.x)  
+- no ground truth model  
+- Essence is not semantic representation  
+---
 # 10. Future Work
+v1.4:
+- reproducible simulation framework  
+- failure mode analysis  
+- visualization of Essence drift  
 
-- v2.x networking  
-- Signature layer  
-- Distributed logs  
-- Mesh-native apps  
-
+v2.0:
+- optional networking layer (still local-first)  
+- long-term memory persistence  
+- multi-device evolution graphs  
 ---
-
 # 11. Non-Goals
-
-- Not a general AI  
-- Not a reasoning engine  
-- Not a centralized network  
-
+- general-purpose AI system  
+- reasoning engine  
+- centralized learning system  
+- factual truth verifier  
 ---
-
 # 12. Glossary
-
-- Essence  
-- Trust  
-- Mutation  
-- UserEvent  
-- Sybil node  
+Essence: behavioral state vector  
+Trust: user-driven fitness signal  
+Mutation: stochastic behavioral update  
+Node: independent evolving agent  
+Event: user interaction signal  
