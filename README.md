@@ -1,6 +1,5 @@
 # Gossamer-Link — Evolution Layer for Distributed Intelligence
 
-Formerly: Synaptic Mesh
 
 ---
 
