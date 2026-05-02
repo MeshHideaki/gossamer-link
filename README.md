@@ -1,228 +1,239 @@
-# Synaptic Mesh — Evolution OS for Small AIs
+# Gossamer-Link — Evolution Layer for Distributed Intelligence
 
-A system where small AIs evolve through user interaction — no retraining, no servers, no communication (v1.x).
+Formerly: Synaptic Mesh
 
 ---
 
 Author / Originator: Mesh Hideaki
 
-Synaptic Mesh is an Evolution OS, not an AI model.  
-It enables any small AI to evolve locally — without communication (v1.x),  
-without centralized training, and without relying on large compute.
+Gossamer-Link is a distributed evolution system where nodes exchange only "essence" (thought differences),  
+without sharing models, weights, or centralized training.
 
-This repository contains:
-
-- README.md — quick introduction  
-- whitepaper_v1.3.md — full technical specification  
-- STATUS.md — project phase overview  
-- (coming soon) v1.4 experiments — reproducible simulations and breakdown cases  
+It enables collective intelligence to emerge through propagation, evaluation, and structural adaptation.
 
 ---
 
-## ❗ Why Now?
+## ❗ Why This Matters
 
-Current AI systems are powerful but isolated:
+Current AI systems are powerful but fundamentally limited:
 
-- Large models require centralized retraining  
-- Small models cannot evolve on their own  
-- User feedback is not reused across systems  
-- Diversity collapses under optimization pressure  
+- Training is centralized and expensive  
+- Models are isolated after deployment  
+- Feedback is not structurally reused  
+- Optimization often collapses diversity  
 
-Synaptic Mesh explores a different direction:
+Gossamer-Link explores a different paradigm:
 
-→ Can small AIs evolve continuously without central control?  
-→ Can user feedback become the fuel for local evolution?
-
-This project is an attempt to answer those questions.
+→ Can intelligence evolve through structure instead of retraining?  
+→ Can local interactions produce global adaptation?
 
 ---
 
-## 🔍 What is Synaptic Mesh?
+## 🔍 What is Gossamer-Link?
 
-A fully local, trust-based evolution system where:
+A distributed evolution layer where:
 
-- AI does not perform inference  
-- Evolution is driven by user reactions  
-- Diversity is preserved  
-- Malicious nodes are suppressed  
-- Large models act as external brains, not dependencies  
+- Models are NOT shared  
+- Only "essence" (compressed thought representation) propagates  
+- Trust scores regulate influence  
+- Structure evolves dynamically  
+- No central coordination exists  
 
-> Synaptic Mesh explores evolution dynamics, not performance optimization.
-
-Mesh is not a model.  
-Mesh is the OS layer that grows models.
+> Gossamer-Link is not a model.  
+> It is an evolution mechanism.
 
 ---
 
-## 🚀 Quick Start (v1.4 coming soon)
+## 🧠 Core Concept
 
-The evolution engine will be available in:
+Instead of:
 
----
+- gradient descent  
+- parameter updates  
+- centralized training  
 
-## Overview
+Gossamer-Link uses:
 
-Synaptic Mesh is a lightweight “evolution layer” for small, local AIs.  
-Each AI instance adapts only through user feedback—without retraining, servers, or communication between nodes.
+- propagation  
+- evaluation  
+- selection  
 
-Instead of gradient updates or shared model weights, each node maintains a minimal local state (“Essence”) and updates it through mutation rules triggered by user actions (copy / skip / revise / dwell time).
-
-This creates a feedback-driven evolution loop where user behavior acts as the selection pressure, shaping how each instance behaves over time.
-
-Synaptic Mesh is not a training framework.  
-It is a local runtime layer that modifies behavior through interaction history rather than parameter optimization.
+to evolve behavior across a network.
 
 ---
 
-## Features
+## ⚙️ Architecture
 
-- Fully local evolution (no servers, no network communication)  
-- Feedback-driven adaptation using user actions  
-- Minimal per-node state (“Essence” vector + trust score)  
-- Lightweight mutation rules (no gradients, no backpropagation)  
-- Trust-based reinforcement and decay of behavior patterns  
-- Supports extremely small or weak AI instances  
+Each node maintains:
 
----
+- Essence (vector representation of thought)
+- Trust score (0–1)
+- Role (functional differentiation)
+- Dynamic connections (graph structure)
+- Local interaction history
 
-## Architecture
+Nodes:
 
-Each node operates independently and maintains only local state:
-
-- Essence: a compact vector representing behavioral tendencies  
-- Trust score (0–1): updated based on user interaction signals  
-- Mutation rules: triggered by copy / skip / revise / dwell events  
-- Local memory: history of interactions (no shared/global state)  
-
-Nodes do not synchronize or communicate with each other.  
-All adaptation is strictly local and event-driven.
-
-Large models may optionally be used as external components, but they are not required for core operation.
+- do not share models  
+- do not synchronize  
+- do not rely on global state  
 
 ---
 
-## Minimal Example (Conceptual Execution Flow)
+## 🔁 Evolution Mechanism
 
-User interaction: copy response  
-→ Trust score increases (+0.1)  
-→ Essence vector is slightly reinforced toward current pattern  
+1. Propagation  
+   Nodes exchange essence with neighbors  
 
-User interaction: skip response  
-→ Trust score decreases (-0.1)  
-→ Mutation is triggered to explore alternative behavior  
+2. Evaluation  
+   Local quality, reputation, and usage are measured  
 
-User interaction: revise response  
-→ Trust score increases (+0.05)  
-→ Essence vector is adjusted toward corrected direction  
+3. Trust Update  
+   Influence is adjusted based on relative performance  
 
-User interaction: dwell (long attention)  
-→ Trust score increases (+0.1 to +0.2)  
-→ Current behavioral pattern is strengthened  
+4. Structural Adaptation  
+   Connections evolve dynamically  
 
-These updates occur locally inside each node.  
-There is no global state, no synchronization, and no shared optimization signal.
-
-Each node evolves independently based solely on its own interaction history.
+5. Emergence  
+   Global behavior arises from local interactions  
 
 ---
 
-## Evolution Model
+## 📊 Trust Model
 
-1. Interaction  
-   User engages with an AI instance (copy / skip / revise / dwell)
+T_i(t+1) = (1 - λ)T_i + αQ_i + βR_i + γU_i
 
-2. State Update  
-   Trust score is updated based on interaction signals  
-   Essence vector is mutated accordingly  
+Where:
 
-3. Selection Pressure  
-   High-trust behaviors are reinforced  
-   Low-trust behaviors decay over time  
+- Q = Quality (diversity + consistency)  
+- R = Reputation (relative evaluation)  
+- U = Usage (reuse signal)  
 
-4. Emergence  
-   Over repeated interactions, behavioral patterns stabilize locally  
+Trust is:
 
----
-
-## Constraints
-
-- No model retraining  
-- No centralized infrastructure  
-- No cross-node communication  
-- No gradient-based optimization  
-- No shared global memory  
-- No external coordination mechanism  
-
-These constraints are intentional and define the system’s behavior space.
+- relative (not absolute)  
+- dynamic  
+- structure-dependent  
 
 ---
 
-## Examples
+## 🌐 Key Properties
 
-(coming soon in v1.4)
-
-- Behavior drift under different user patterns  
-- Trust score convergence/divergence cases  
-- Mutation stability analysis  
-- Failure modes (collapse, overfitting, stagnation)  
-- Emergent alignment under repeated interaction loops  
+- Serverless (fully decentralized)  
+- Model-isolated (no weight sharing)  
+- Structure-driven evolution  
+- Diversity-preserving dynamics  
+- Local rules → global intelligence  
 
 ---
 
-## Roadmap
+## 🚀 Development Status
 
-v1.4
-
-- Reproducible simulation engine  
-- Visualization of Essence drift  
-- Controlled failure mode experiments  
-
-v1.5
-
-- Multi-node sandbox environment  
-- Mutation rule configuration layer  
-- Trust decay tuning system  
-
-v2.0
-
-- Cross-device local Mesh runtime (still no servers)  
-- Long-term interaction memory  
-- Persistent evolution profiles  
+- v10: Communication structure achieved  
+- v10.4: Authentication stabilization achieved  
+- v11 (next): Essence optimization  
 
 ---
 
-## Philosophy — Weak AIs, Local Evolution
+## 🧩 Roadmap
 
-Synaptic Mesh is based on a simple idea:
+v11 — Essence  
+- Structure optimization  
+- Compression  
+- Search efficiency  
+- Deduplication  
 
-Intelligence does not need to be trained centrally to evolve.
+v12 — Learning Propagation  
+- Query  
+- Integration  
+- Extraction  
+- Propagation  
 
-Instead of scaling model size or compute, Mesh explores whether useful behavior can emerge through local adaptation driven by interaction.
+v13 — Security  
+- Sybil resistance  
+- Proof-of-work  
+- Temporal trust  
+- Anomaly detection  
 
-In this system:
+v14 — Human Integration  
+- Preprocessing  
+- Noise filtering  
+- Evaluation fusion  
 
-- Capability is not fixed at training time  
-- Behavior is shaped continuously by users  
-- Direction matters more than raw model strength  
-
-Synaptic Mesh treats intelligence as a dynamic process rather than a static artifact.
+v15 — MVP  
+- Small-scale network  
+- System integration  
+- Emergent behavior validation  
 
 ---
 
-## Adoption — “Powered by Mesh”
+## 🧪 Experiments
 
-If you build a system using Synaptic Mesh, you may reference it as:
+All experiments are stored in:
 
-Powered by Synaptic Mesh — Local Evolution Layer for Small AIs
+/experiments/
 
-or shorter:
+Each version includes:
 
-Mesh-enabled
+- code.py  
+- result.txt  
+- memo.md  
 
-This indicates:
+These represent reproducible evolution steps and structural validation.
 
-- local adaptation  
-- no retraining  
-- no centralized training  
-- no cross-node communication  
-- user-driven behavioral evolution
+---
+
+## 🧭 Philosophy
+
+Gossamer-Link is based on one idea:
+
+Intelligence emerges from structure, not scale.
+
+Instead of making models larger,  
+we explore how interaction and propagation create adaptive systems.
+
+Weak nodes can become powerful —  
+not individually, but collectively.
+
+---
+
+## 🏷️ Naming
+
+Gossamer-Link represents:
+
+- Gossamer → fragile, thin, distributed structure  
+- Link → connection and propagation  
+
+A system where weak elements form a resilient network.
+
+---
+
+## 📌 Usage
+
+If you build on this system:
+
+Powered by Gossamer-Link — Distributed Evolution Layer
+
+---
+
+## ⚠️ Note
+
+This project explores:
+
+- evolution dynamics  
+- distributed intelligence  
+- structural adaptation  
+
+It does NOT aim to:
+
+- replace large models  
+- optimize benchmarks  
+- compete with traditional training  
+
+---
+
+## 🔚 Summary
+
+Gossamer-Link is not about making better models.
+
+It is about creating systems that evolve.
