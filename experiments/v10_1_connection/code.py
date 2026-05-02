@@ -3,6 +3,7 @@ import random
 
 NUM_ROLES = 3
 MAX_CONNECTIONS = 4
+TOP_K = 6  # ← 上位候補からランダム選択
 
 class Node:
     def __init__(self, id, dim=8):
@@ -20,36 +21,58 @@ def cosine_similarity(a, b):
     return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b) + 1e-8)
 
 def update_connections(nodes):
+    N = len(nodes)
     incoming_count = {n.id: 0 for n in nodes}
 
+    # ===== 1st pass（スコアリング）=====
     for node in nodes:
         candidates = [n for n in nodes if n.id != node.id]
 
         scored = []
         for n in candidates:
             sim = cosine_similarity(node.essence, n.essence)
-            trust = n.trust
-            score = 0.7 * trust + 0.3 * sim
-            scored.append((score, n))
+
+            # trust圧縮
+            trust = np.sqrt(n.trust)
+
+            # ハブ抑制
+            hub_penalty = 1 / (1 + incoming_count[n.id]**1.5)
+
+            score = (0.6 * trust + 0.4 * sim) * hub_penalty
+            scored.append((score, n.id))
 
         scored.sort(reverse=True, key=lambda x: x[0])
-        node.connections = set([n.id for _, n in scored[:MAX_CONNECTIONS]])
 
-        for cid in node.connections:
+        # ★ 上位Kからランダム選択（重要）
+        top_candidates = [nid for _, nid in scored[:TOP_K]]
+        selected = random.sample(top_candidates, min(MAX_CONNECTIONS, len(top_candidates)))
+
+        node.connections = set(selected)
+
+        for cid in selected:
             incoming_count[cid] += 1
+
+    # ===== 2nd pass（均等化）=====
+    avg = sum(incoming_count.values()) / N
 
     for node in nodes:
         adjusted = set()
+
         for cid in node.connections:
-            penalty = incoming_count[cid] / len(nodes)
-            if random.random() > penalty:
+            overload = incoming_count[cid] / (avg + 1e-8)
+
+            if overload < 1.3 or random.random() > 0.7:
                 adjusted.add(cid)
 
+        # ★ 低接続優先で補充
         while len(adjusted) < MAX_CONNECTIONS:
-            candidates = [n.id for n in nodes if n.id != node.id and n.id not in adjusted]
+            candidates = sorted(
+                [n for n in nodes if n.id != node.id and n.id not in adjusted],
+                key=lambda x: incoming_count[x.id]
+            )
             if not candidates:
                 break
-            adjusted.add(random.choice(candidates))
+            adjusted.add(candidates[0].id)
 
         node.connections = adjusted
 
@@ -157,6 +180,9 @@ def update_trust(nodes, neighbors_dict,
 
         if new_T < 0.1:
             new_T += recovery
+
+        if new_T > 0.8:
+            new_T = 0.8 + (new_T - 0.8) * 0.2
 
         node.trust = float(np.clip(new_T, 0.05, 1.0))
 
