@@ -1,12 +1,6 @@
 # Synaptic Mesh
 
-A system where small AIs evolve through user interaction.
-
-- No retraining  
-- No servers  
-- No communication (v1.x)  
-
-This repository contains experimental logs and simulations.
+A system where small AIs evolve through user interaction — no retraining, no servers, no communication (v1.x).
 
 ---
 
