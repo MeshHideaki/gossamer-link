@@ -28,7 +28,7 @@ def essence_similarity(node_a, node_b):
         for eb in node_b.essences
     )
 
-# ===== 改良：重複排除（安定補完付き）=====
+# ===== Improved Deduplication (stable refill) =====
 def global_dedup(nodes):
     all_vectors = []
 
@@ -46,7 +46,7 @@ def global_dedup(nodes):
                 new_ess.append(e)
                 all_vectors.append(e)
 
-        # ★ 改良：ランダム補充を廃止し、近傍平均で補完
+        # refill using existing vectors + small noise
         while len(new_ess) < ESSENCE_SLOTS:
             if all_vectors:
                 base = random.choice(all_vectors)
@@ -59,7 +59,7 @@ def global_dedup(nodes):
 
         node.essences = new_ess[:ESSENCE_SLOTS]
 
-# ===== 検索 =====
+# ===== Search =====
 def search_nodes(node, nodes):
     candidates = [n for n in nodes if n.id != node.id]
 
@@ -202,7 +202,7 @@ for n in nodes:
 essences = np.array(all_ess)
 variances = np.var(essences, axis=0)
 
-print("平均分散:", float(np.mean(variances)))
-print("信頼スコア:", [round(n.trust, 3) for n in nodes])
-print("役割:", [n.role for n in nodes])
-print("接続:", [list(n.connections) for n in nodes])
+print("mean_variance:", float(np.mean(variances)))
+print("trust:", [round(n.trust, 3) for n in nodes])
+print("roles:", [n.role for n in nodes])
+print("connections:", [list(n.connections) for n in nodes])
