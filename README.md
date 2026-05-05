@@ -1,238 +1,70 @@
-# Gossamer-Link — Evolution Layer for Distributed Intelligence
+# Gossamer-Link
 
+**Structure adapts, not weights.**
 
----
-
-Author / Originator: Mesh Hideaki
-
-Gossamer-Link is a distributed evolution system where nodes exchange only "essence" (thought differences),  
-without sharing models, weights, or centralized training.
-
-It enables collective intelligence to emerge through propagation, evaluation, and structural adaptation.
+![Gossamer-Link Demo](gossamer-link-demo.mp4)
 
 ---
 
-## ❗ Why This Matters
+## What is Gossamer-Link?
 
-Current AI systems are powerful but fundamentally limited:
+Gossamer-Link is an experimental **intelligence layer** that evolves through dynamic structural changes rather than weight optimization.
 
-- Training is centralized and expensive  
-- Models are isolated after deployment  
-- Feedback is not structurally reused  
-- Optimization often collapses diversity  
-
-Gossamer-Link explores a different paradigm:
-
-→ Can intelligence evolve through structure instead of retraining?  
-→ Can local interactions produce global adaptation?
+While conventional AI systems learn by adjusting parameters,  
+Gossamer-Link continuously reorganizes its internal **node connections and local dynamics** in response to stimuli.
 
 ---
 
-## 🔍 What is Gossamer-Link?
+## Current Demo (2026.5)
 
-A distributed evolution layer where:
+This video shows the core mechanism in action:
 
-- Models are NOT shared  
-- Only "essence" (compressed thought representation) propagates  
-- Trust scores regulate influence  
-- Structure evolves dynamically  
-- No central coordination exists  
+- **Stimulus A (Aggressive)** → Convergence  
+- **Stimulus B (Evasive)** → Divergence  
+- **Stimulus C (Mixed)** → Complex structural formation  
 
-> Gossamer-Link is not a model.  
-> It is an evolution mechanism.
+**This is not training.**  
+**This is structural adaptation.**
 
 ---
 
-## 🧠 Core Concept
+## Current Status
 
-Instead of:
-
-- gradient descent  
-- parameter updates  
-- centralized training  
-
-Gossamer-Link uses:
-
-- propagation  
-- evaluation  
-- selection  
-
-to evolve behavior across a network.
+- Single-process simulation
+- Implemented up to **v13.3** (relative ranking pressure + trust-time dynamics)
+- Observed meta-stable structural behavior under current conditions  
+  (continuous reconfiguration without collapse or full convergence)
+- Game adaptation prototype was explored but set aside in favor of clearer structural visualization
 
 ---
 
-## ⚙️ Architecture
+## Vision
 
-Each node maintains:
+Gossamer-Link is intended as a foundational layer for:
+- Distributed self-organizing intelligence
+- Adaptive systems (games, social platforms, personal environments, etc.)
+- A new paradigm where intelligence emerges from structure itself
 
-- Essence (vector representation of thought)
-- Trust score (0–1)
-- Role (functional differentiation)
-- Dynamic connections (graph structure)
-- Local interaction history
-
-Nodes:
-
-- do not share models  
-- do not synchronize  
-- do not rely on global state  
+This repository represents the **minimal viable proof** of the concept.
 
 ---
 
-## 🔁 Evolution Mechanism
+## Core Philosophy
 
-1. Propagation  
-   Nodes exchange essence with neighbors  
+Traditional AI:  
+→ Learns better answers
 
-2. Evaluation  
-   Local quality, reputation, and usage are measured  
-
-3. Trust Update  
-   Influence is adjusted based on relative performance  
-
-4. Structural Adaptation  
-   Connections evolve dynamically  
-
-5. Emergence  
-   Global behavior arises from local interactions  
+Gossamer-Link:  
+→ Changes *how* answers are formed
 
 ---
 
-## 📊 Trust Model
+## Notes
 
-T_i(t+1) = (1 - λ)T_i + αQ_i + βR_i + γU_i
-
-Where:
-
-- Q = Quality (diversity + consistency)  
-- R = Reputation (relative evaluation)  
-- U = Usage (reuse signal)  
-
-Trust is:
-
-- relative (not absolute)  
-- dynamic  
-- structure-dependent  
+- Experimental project focused purely on structural dynamics
+- Not designed for benchmarks or direct model replacement
+- Open to collaboration and forking
 
 ---
 
-## 🌐 Key Properties
-
-- Serverless (fully decentralized)  
-- Model-isolated (no weight sharing)  
-- Structure-driven evolution  
-- Diversity-preserving dynamics  
-- Local rules → global intelligence  
-
----
-
-## 🚀 Development Status
-
-- v10: Communication structure achieved  
-- v10.4: Authentication stabilization achieved  
-- v11 (next): Essence optimization  
-
----
-
-## 🧩 Roadmap
-
-v11 — Essence  
-- Structure optimization  
-- Compression  
-- Search efficiency  
-- Deduplication  
-
-v12 — Learning Propagation  
-- Query  
-- Integration  
-- Extraction  
-- Propagation  
-
-v13 — Security  
-- Sybil resistance  
-- Proof-of-work  
-- Temporal trust  
-- Anomaly detection  
-
-v14 — Human Integration  
-- Preprocessing  
-- Noise filtering  
-- Evaluation fusion  
-
-v15 — MVP  
-- Small-scale network  
-- System integration  
-- Emergent behavior validation  
-
----
-
-## 🧪 Experiments
-
-All experiments are stored in:
-
-/experiments/
-
-Each version includes:
-
-- code.py  
-- result.txt  
-- memo.md  
-
-These represent reproducible evolution steps and structural validation.
-
----
-
-## 🧭 Philosophy
-
-Gossamer-Link is based on one idea:
-
-Intelligence emerges from structure, not scale.
-
-Instead of making models larger,  
-we explore how interaction and propagation create adaptive systems.
-
-Weak nodes can become powerful —  
-not individually, but collectively.
-
----
-
-## 🏷️ Naming
-
-Gossamer-Link represents:
-
-- Gossamer → fragile, thin, distributed structure  
-- Link → connection and propagation  
-
-A system where weak elements form a resilient network.
-
----
-
-## 📌 Usage
-
-If you build on this system:
-
-Powered by Gossamer-Link — Distributed Evolution Layer
-
----
-
-## ⚠️ Note
-
-This project explores:
-
-- evolution dynamics  
-- distributed intelligence  
-- structural adaptation  
-
-It does NOT aim to:
-
-- replace large models  
-- optimize benchmarks  
-- compete with traditional training  
-
----
-
-## 🔚 Summary
-
-Gossamer-Link is not about making better models.
-
-It is about creating systems that evolve.
+**"Intelligence evolves through structure."**
