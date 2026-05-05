@@ -2,7 +2,7 @@
 
 **Structure adapts, not weights.**
 
-[gossamer-link-demo.mp4](gossamer-link-demo.mp4)
+<video src="gossamer-link-demo.mp4" width="100%" controls autoplay loop muted></video>
 
 ---
 
