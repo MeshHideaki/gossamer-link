@@ -31,9 +31,11 @@ This video shows the core mechanism in action:
 ## Current Status
 
 - Single-process simulation
-- Implemented up to **v13.3** (relative ranking pressure + trust-time dynamics)
-- Observed meta-stable structural behavior under current conditions  
+- Implemented up to **v13 (Security Layer complete)**
+- Verified under stability conditions  
   (continuous reconfiguration without collapse or full convergence)
+- Security mechanisms integrated  
+  (Sybil resistance, PoW, trust-time dynamics, anomaly detection)
 - Game adaptation prototype was explored but set aside in favor of clearer structural visualization
 
 ---
