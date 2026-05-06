@@ -1,0 +1,52 @@
+Run1:
+
+mean_output_norm: 1.0
+
+std_output_norm: 0.0
+
+preprocessing_consistency_error: 0.0
+
+mean_variance: 0.029122
+
+trust_range: 0.654181
+
+validation_result: True
+
+final_result: achieved
+
+
+Run2:
+
+mean_output_norm: 1.0
+
+std_output_norm: 0.0
+
+preprocessing_consistency_error: 0.0
+
+mean_variance: 0.030781
+
+trust_range: 0.568755
+
+validation_result: True
+
+final_result: achieved
+
+
+Run3:
+
+mean_output_norm: 1.0
+
+std_output_norm: 0.0
+
+preprocessing_consistency_error: 0.0
+
+mean_variance: 0.030956
+
+trust_range: 0.626683
+
+validation_result: True
+
+final_result: achieved
+
+
+Status: achieved
