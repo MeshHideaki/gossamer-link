@@ -12,11 +12,6 @@
   <a href="Visual%20Sequence%2001.mp4">Visual Sequence 01</a>
 </div>
 
-<a href="Visua1%20Sequence%2001.mp4">
-Visual Sequence 01
-</a>
-</div>
-
 ---
 
 ## What is Gossamer-Link?
