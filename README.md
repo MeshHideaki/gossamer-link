@@ -3,8 +3,8 @@
 **Structure adapts, not weights.**
 
 <div align="center">
-  <a href="gossamer-link-demo.mp4">
-    <img src="gossamer-link-demo.gif" alt="gossamer-link-demo" width="100%">
+  <a href="Visual_Sequence_01.mp4">
+    <img src="Visual_Sequence_01.gif" alt="Visual_Sequence_01" width="100%">
   </a>
   <br>
   <a href="Visual_Sequence_01.mp4">Visual Sequence 01</a>
