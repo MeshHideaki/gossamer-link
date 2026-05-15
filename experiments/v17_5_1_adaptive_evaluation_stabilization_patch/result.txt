@@ -1,0 +1,77 @@
+--- RUN #1 ---
+adaptive_evaluation_memory_length: 700
+adaptation_score_history_length: 700
+current_adaptive_state_history_length: 700
+adaptive_transition_events_length: 253
+evaluation_event_history_length: 700
+adaptive_feedback_history_length: 700
+successful_adaptation_events: 663
+resilience_improvement_events: 666
+repair_effectiveness_events: 668
+anomaly_reduction_success_events: 225
+persistence_growth_events: 147
+rewiring_stabilization_events: 324
+adaptive_feedback_integrity: True
+adaptation_score_tracking: True
+resilience_tracking: True
+adaptive_transition_awareness: True
+continuous_adaptive_evaluation: True
+structural_diversity: 1.0
+average_persistence: 80.0
+simulation_stability: True
+mean_variance: 0.025032
+trust_range: 0.587308
+validation_result: True
+
+--- RUN #2 ---
+adaptive_evaluation_memory_length: 700
+adaptation_score_history_length: 700
+current_adaptive_state_history_length: 700
+adaptive_transition_events_length: 252
+evaluation_event_history_length: 700
+adaptive_feedback_history_length: 700
+successful_adaptation_events: 663
+resilience_improvement_events: 668
+repair_effectiveness_events: 669
+anomaly_reduction_success_events: 230
+persistence_growth_events: 135
+rewiring_stabilization_events: 319
+adaptive_feedback_integrity: True
+adaptation_score_tracking: True
+resilience_tracking: True
+adaptive_transition_awareness: True
+continuous_adaptive_evaluation: True
+structural_diversity: 0.916667
+average_persistence: 80.0
+simulation_stability: True
+mean_variance: 0.024888
+trust_range: 0.519705
+validation_result: True
+
+--- RUN #3 ---
+adaptive_evaluation_memory_length: 700
+adaptation_score_history_length: 700
+current_adaptive_state_history_length: 700
+adaptive_transition_events_length: 249
+evaluation_event_history_length: 700
+adaptive_feedback_history_length: 700
+successful_adaptation_events: 665
+resilience_improvement_events: 667
+repair_effectiveness_events: 668
+anomaly_reduction_success_events: 219
+persistence_growth_events: 143
+rewiring_stabilization_events: 317
+adaptive_feedback_integrity: True
+adaptation_score_tracking: True
+resilience_tracking: True
+adaptive_transition_awareness: True
+continuous_adaptive_evaluation: True
+structural_diversity: 0.916667
+average_persistence: 80.0
+simulation_stability: True
+mean_variance: 0.024773
+trust_range: 0.620218
+validation_result: True
+
+final_result:
+ACHIEVED
